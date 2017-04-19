@@ -1,0 +1,342 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/mklabs/node-tabtab#readme"
+
+    >tabtab (v2.2.2)</a>
+</h1>
+<h4>tab completion helpers, for node cli programs. Inspired by npm completion.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tabtab">module tabtab</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tabtab.tabtab">
+            function <span class="apidocSignatureSpan"></span>tabtab
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tabtab.Commands">
+            function <span class="apidocSignatureSpan">tabtab.</span>Commands
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tabtab.Complete">
+            function <span class="apidocSignatureSpan">tabtab.</span>Complete
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tabtab.</span>Complete.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tabtab.Complete">module tabtab.Complete</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tabtab.Complete.Complete">
+            function <span class="apidocSignatureSpan">tabtab.</span>Complete
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tabtab.Complete.prototype">module tabtab.Complete.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tabtab.Complete.prototype.cache">
+            function <span class="apidocSignatureSpan">tabtab.Complete.prototype.</span>cache
+            <span class="apidocSignatureSpan">(key, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tabtab.Complete.prototype.fromStore">
+            function <span class="apidocSignatureSpan">tabtab.Complete.prototype.</span>fromStore
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tabtab.Complete.prototype.initCache">
+            function <span class="apidocSignatureSpan">tabtab.Complete.prototype.</span>initCache
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tabtab.Complete.prototype.writeToStore">
+            function <span class="apidocSignatureSpan">tabtab.Complete.prototype.</span>writeToStore
+            <span class="apidocSignatureSpan">(cache)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tabtab" id="apidoc.module.tabtab">module tabtab</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tabtab.tabtab" id="apidoc.element.tabtab.tabtab">
+        function <span class="apidocSignatureSpan"></span>tabtab
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function tabtab(options) {
+  return new Complete(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tabtab.Commands" id="apidoc.element.tabtab.Commands">
+        function <span class="apidocSignatureSpan">tabtab.</span>Commands
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Commands(options) {
+  _classCallCheck(this, Commands);
+
+  this.options = options || {};
+  this.complete = new Complete(this.options);
+  this.installer = new _installer2.default(this.options, this.complete);
+  this.shell = (process.env.SHELL || &#x27;&#x27;).split(&#x27;/&#x27;).slice(-1)[0];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tabtab.Complete" id="apidoc.element.tabtab.Complete">
+        function <span class="apidocSignatureSpan">tabtab.</span>Complete
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Complete(options) {
+  _classCallCheck(this, Complete);
+
+  var _this = _possibleConstructorReturn(this, (Complete.__proto__ || Object.getPrototypeOf(Complete)).call(this));
+
+  _this.options = options || _this.defaults;
+  _this.options.name = _this.options.name || _this.resolve(&#x27;name&#x27;);
+  _this.options.cache = typeof _this.options.cache !== &#x27;undefined&#x27; ? _this.options.cache : true;
+  _this.options.ttl = _this.options.ttl || 1000 * 60 * 5;
+
+  _this._results = [];
+  _this._completions = [];
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tabtab.Complete" id="apidoc.module.tabtab.Complete">module tabtab.Complete</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tabtab.Complete.Complete" id="apidoc.element.tabtab.Complete.Complete">
+        function <span class="apidocSignatureSpan">tabtab.</span>Complete
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Complete(options) {
+  _classCallCheck(this, Complete);
+
+  var _this = _possibleConstructorReturn(this, (Complete.__proto__ || Object.getPrototypeOf(Complete)).call(this));
+
+  _this.options = options || _this.defaults;
+  _this.options.name = _this.options.name || _this.resolve(&#x27;name&#x27;);
+  _this.options.cache = typeof _this.options.cache !== &#x27;undefined&#x27; ? _this.options.cache : true;
+  _this.options.ttl = _this.options.ttl || 1000 * 60 * 5;
+
+  _this._results = [];
+  _this._completions = [];
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tabtab.Complete.prototype" id="apidoc.module.tabtab.Complete.prototype">module tabtab.Complete.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tabtab.Complete.prototype.cache" id="apidoc.element.tabtab.Complete.prototype.cache">
+        function <span class="apidocSignatureSpan">tabtab.Complete.prototype.</span>cache
+        <span class="apidocSignatureSpan">(key, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function cache(key, value) {
+  if (!this.cacheStore) this.initCache();
+  if (!value) return this.fromStore(key);
+  this.cacheStore[key] = { timestamp: Date.now(), value: value };
+  // this.writeToStore(this.cacheStore);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tabtab.Complete.prototype.fromStore" id="apidoc.element.tabtab.Complete.prototype.fromStore">
+        function <span class="apidocSignatureSpan">tabtab.Complete.prototype.</span>fromStore
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fromStore(key) {
+  var cache = this.cacheStore[key];
+  if (!cache) return;
+
+  var now = Date.now();
+  var elapsed = now - cache.timestamp;
+  if (elapsed &#x3e; this.options.ttl) {
+    debug(&#x27;Cache TTL, invalid cache&#x27;);
+    delete this.cacheStore[key];
+    this.writeToStore(this.cacheStore);
+  }
+
+  return cache;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tabtab.Complete.prototype.initCache" id="apidoc.element.tabtab.Complete.prototype.initCache">
+        function <span class="apidocSignatureSpan">tabtab.Complete.prototype.</span>initCache
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function initCache() {
+  this._cache = exists(cachefile) ? require(cachefile) : { timestamp: Date.now(), cache: {} };
+  this.cacheStore = this._cache.cache;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tabtab.Complete.prototype.writeToStore" id="apidoc.element.tabtab.Complete.prototype.writeToStore">
+        function <span class="apidocSignatureSpan">tabtab.Complete.prototype.</span>writeToStore
+        <span class="apidocSignatureSpan">(cache)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writeToStore(cache) {
+  debug(&#x27;Writing to %s&#x27;, cachefile);
+  fs.writeFileSync(cachefile, JSON.stringify({
+    timestamp: Date.now(),
+    cache: cache
+  }, null, 2));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
